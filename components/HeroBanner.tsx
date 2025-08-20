@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function HeroBanner() {
   return (
-    <section className="flex flex-wrap items-center justify-between bg-brandGreen text-white px-8 py-12 rounded-b-3xl min-h-[320px]">
-      <div className="max-w-xl flex-1 min-w-[340px]">
+    <section className="flex items-center justify-between bg-brandGreen text-white px-8 py-12 rounded-b-3xl min-h-[320px]">
+      <div className="max-w-xl flex-1">
         <h1 className="text-4xl font-bold mb-3">Nature&apos;s Way Soil</h1>
         <p className="text-lg mb-6">
           From our farm to your garden — premium organic soil blends enriched with biochar, worm castings, & mycorrhizae.
@@ -22,8 +22,15 @@ export default function HeroBanner() {
           <li>Mycorrhizae to supercharge roots</li>
         </ul>
       </div>
-      <div className="flex-1 min-w-[200px] flex justify-end">
-        <Image src="/logo.png" alt="Nature's Way Soil" width={220} height={220} className="object-contain rounded-full" />
+      <div className="flex-1 flex justify-center items-center">
+        <Image
+          src="/logo.png"
+          alt="Nature's Way Soil"
+          width={180}
+          height={180}
+          className="object-contain rounded-full"
+          priority
+        />
       </div>
     </section>
   );
