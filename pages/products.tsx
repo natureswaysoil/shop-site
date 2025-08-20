@@ -5,8 +5,8 @@ export default function ProductsPage() {
   return (
     <>    
       <Navbar />
-      <main style={{ maxWidth: 1200, margin: "0 auto", padding: "2rem" }}>
-        <h1>All Products</h1>
+      <main className="max-w-6xl mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-8">All Products</h1>
         <ProductGallery />
       </main>
     </>

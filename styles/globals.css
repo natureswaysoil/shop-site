@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom theme overrides */
+body {
+  background: #fafcf9;
+  color: #184932;
+}

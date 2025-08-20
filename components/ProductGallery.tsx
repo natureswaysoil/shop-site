@@ -5,47 +5,21 @@ export default function ProductGallery({ featuredOnly = false }) {
   const { addToCart } = useCart();
   const list = featuredOnly ? products.filter(p => p.featured) : products;
   return (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-      gap: "2rem",
-      padding: "2rem 0",
-    }}>
+    <div className="grid gap-8 py-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
       {list.map((product) => (
-        <div key={product.slug} style={{
-          boxShadow: "0 2px 8px #0001",
-          borderRadius: "12px",
-          background: "#fafcf9",
-          overflow: "hidden",
-          display: "flex",
-          flexDirection: "column"
-        }}>
+        <div key={product.slug} className="shadow-lg rounded-xl bg-[#fafcf9] flex flex-col overflow-hidden">
           <img
             src={product.image}
             alt={product.title}
-            style={{ width: "100%", objectFit: "cover", aspectRatio: "1.2", minHeight: "180px" }}
+            className="w-full object-cover aspect-[1.2] min-h-[180px]"
           />
-          <div style={{ padding: "1rem" }}>
-            <h3 style={{ margin: "0 0 0.5rem 0", fontSize: "1.1rem", color: "#184932", cursor: "pointer" }}>
-              {product.title}
-            </h3>
-            <p style={{ margin: "0 0 0.5rem 0", fontSize: "0.95rem", color: "#444" }}>
-              {product.description}
-            </p>
-            <div style={{ fontWeight: "bold", color: "#d18122", fontSize: "1rem", marginBottom: "0.75rem" }}>
-              {product.price}
-            </div>
+          <div className="p-4">
+            <h3 className="text-lg font-semibold text-brandGreen mb-2 cursor-pointer">{product.title}</h3>
+            <p className="text-base mb-2 text-gray-700">{product.description}</p>
+            <div className="font-bold text-brandOrange text-base mb-3">{product.price}</div>
             <button
               onClick={() => addToCart(product)}
-              style={{
-                padding: "0.75rem 1.5rem",
-                background: "#184932",
-                color: "#fff",
-                border: "none",
-                borderRadius: "8px",
-                fontWeight: "bold",
-                cursor: "pointer"
-              }}
+              className="px-6 py-3 bg-brandGreen text-white rounded-lg font-bold mt-auto"
             >
               Add to Cart
             </button>

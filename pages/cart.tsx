@@ -5,7 +5,7 @@ export default function CartPage() {
   return (
     <>    
       <Navbar />
-      <main style={{ maxWidth: 600, margin: "2rem auto" }}>
+      <main className="max-w-xl mx-auto py-8">
         <Cart />
       </main>
     </>

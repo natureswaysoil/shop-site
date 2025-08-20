@@ -5,17 +5,17 @@ export default function Cart() {
   const total = cart.reduce((sum, item) => sum + parseFloat(item.price.replace("$", "")) * item.quantity, 0);
 
   return (
-    <div style={{ background: "#fff", borderRadius: "8px", padding: "1rem", boxShadow: "0 2px 8px #0001" }}>
-      <h2>Your Cart</h2>
+    <div className="bg-white rounded-lg p-4 shadow-lg">
+      <h2 className="text-xl font-bold mb-4">Your Cart</h2>
       {cart.length === 0 && <p>Your cart is empty.</p>}
       {cart.length > 0 && (
-        <>
+        <> 
           <ul>
             {cart.map(item => (
-              <li key={item.slug} style={{ marginBottom: "0.75rem" }}>
+              <li key={item.slug} className="mb-3">
                 <strong>{item.title}</strong> - {item.price} x {item.quantity}
                 <button
-                  style={{ marginLeft: "1rem", color: "#a00", border: "none", background: "transparent", cursor: "pointer" }}
+                  className="ml-4 text-red-700 border-none bg-transparent cursor-pointer"
                   onClick={() => removeFromCart(item.slug)}
                 >
                   Remove
@@ -23,35 +23,16 @@ export default function Cart() {
               </li>
             ))}
           </ul>
-          <div style={{ fontWeight: "bold", marginTop: "1rem" }}>Total: ${total.toFixed(2)}</div>
+          <div className="font-bold mt-4">Total: ${total.toFixed(2)}</div>
           <button
-            style={{
-              marginTop: "1rem",
-              padding: "0.75rem 1.5rem",
-              background: "#d18122",
-              color: "#fff",
-              border: "none",
-              borderRadius: "8px",
-              fontWeight: "bold",
-              cursor: "pointer"
-            }}
+            className="mt-4 px-6 py-3 bg-brandOrange text-white rounded-lg font-bold"
             onClick={clearCart}
           >
             Clear Cart
           </button>
-          <form action="/checkout" method="GET" style={{ display: "inline" }}>
+          <form action="/checkout" method="GET" className="inline">
             <button
-              style={{
-                marginTop: "1rem",
-                marginLeft: "1rem",
-                padding: "0.75rem 1.5rem",
-                background: "#184932",
-                color: "#fff",
-                border: "none",
-                borderRadius: "8px",
-                fontWeight: "bold",
-                cursor: "pointer"
-              }}
+              className="mt-4 ml-4 px-6 py-3 bg-brandGreen text-white rounded-lg font-bold"
               type="submit"
             >
               Checkout
